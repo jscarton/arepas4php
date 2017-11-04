@@ -20,7 +20,7 @@ yum -y install git
 echo "---------------------------------------------------------------"
 echo "INSTALLING NGINX"
 echo "---------------------------------------------------------------"
-yum install nginx
+yum install -y nginx
 systemctl start nginx
 systemctl enable nginx
 
