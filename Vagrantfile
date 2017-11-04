@@ -59,7 +59,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.hostmanager.manage_guest = true
     config.hostmanager.ignore_private_ip = false
     config.hostmanager.include_offline = true
-    config.hostmanager.aliases = %w(arepas.php)
+    config.hostmanager.aliases = %w(php.arepasapp.com phpapp.arepasapp.com)
   end
 
   #------------------------------------------------------------------------------------
