@@ -34,5 +34,13 @@ systemctl start php-fpm
 systemctl enable php-fpm
 
 echo "---------------------------------------------------------------"
+echo "CONFIGURING FIRST SITE"
+echo "---------------------------------------------------------------"
+cd /home/vagrant/arepas/recipes/nginx/php/
+chmod +x install.sh
+./install.sh
+cd /home/vagrant/arepas/
+rm -rf recipes
+echo "---------------------------------------------------------------"
 echo " AREPAS4PHP SETUP HAS BEEN COMPLETED"
 echo "---------------------------------------------------------------"

@@ -1,0 +1,13 @@
+This directory contains the keys and certificates for domains php.arepasapp.com and phpapp.arepasapp.com.
+
+`privkey.pem`  : the private key for your certificate.
+`fullchain.pem`: the certificate file used in most server software.
+
+
+These files are provided to support HTTPS on the vagrant machine, trying to use in real world is not possible
+
+best regards
+
+Juan Scarton <jscarton@gmail.com>
+
+Learn more at: https://github.com/jscarton
