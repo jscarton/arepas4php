@@ -3,14 +3,13 @@
 echo "---------------------------------------------------------------"
 echo " "
 echo " "
-echo "      AREPAS4PHP INSTALLER v20171015"
+echo "      AREPAS4PHP INSTALLER v20170125"
 echo " "
 echo " "
 echo "---------------------------------------------------------------"
 yum -y install epel-release
 yum update
 yum -y install nano wget
-
 
 echo "---------------------------------------------------------------"
 echo "INSTALLING GIT"
@@ -32,6 +31,41 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 yum install -y php71w-cli php71w-common php71w-gd php71w-mbstring php71w-mcrypt php71w-mysqlnd php71w-xml php71w-fpm
 systemctl start php-fpm
 systemctl enable php-fpm
+
+echo "---------------------------------------------------------------"
+echo "INSTALLING MYSQL 5.6"
+echo "---------------------------------------------------------------"
+sudo rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+sudo yum update
+sudo yum install mysql-server
+sudo systemctl start mysqldp
+sudo systemctl enable mysqld
+
+echo "---------------------------------------------------------------"
+echo "INSTALLING PHPunit"
+echo "---------------------------------------------------------------"
+wget https://phar.phpunit.de/phpunit.phar
+chmod +x phpunit.phar
+sudo mv phpunit.phar /usr/local/bin/phpunit
+phpunit --version
+
+echo "---------------------------------------------------------------"
+echo "INSTALLING LATEST COMPOSER"
+echo "---------------------------------------------------------------"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+sudo mv composer.phar /usr/local/bin/composer
+composer --version
+
+echo "---------------------------------------------------------------"
+echo "INSTALLING LATEST Laravel"
+echo "---------------------------------------------------------------"
+composer global require "laravel/installer"
+echo "export PATH=\$PATH:\$HOME/.config/composer/vendor/bin/">>/home/vagrant/.bash_profile
+laravel --version
 
 echo "---------------------------------------------------------------"
 echo "CONFIGURING FIRST SITE"
