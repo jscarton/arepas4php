@@ -48,7 +48,7 @@ echo "---------------------------------------------------------------"
 wget https://phar.phpunit.de/phpunit.phar
 chmod +x ./phpunit.phar
 mv /home/vagrant/phpunit.phar /usr/local/bin/phpunit
-#phpunit --version
+/usr/local/bin/phpunit --version
 
 echo "---------------------------------------------------------------"
 echo "INSTALLING LATEST COMPOSER"
@@ -58,14 +58,7 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece38
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 mv /home/vagrant/composer.phar /usr/local/bin/composer
-#composer --version
-
-echo "---------------------------------------------------------------"
-echo "INSTALLING LATEST Laravel"
-echo "---------------------------------------------------------------"
-#composer global require "laravel/installer"
-#echo "export PATH=\$PATH:\$HOME/.config/composer/vendor/bin/">>/home/vagrant/.bash_profile
-#laravel --version
+/usr/local/bin/composer --version
 
 echo "---------------------------------------------------------------"
 echo "CONFIGURING FIRST SITE"
