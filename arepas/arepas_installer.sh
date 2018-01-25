@@ -8,7 +8,7 @@ echo " "
 echo " "
 echo "---------------------------------------------------------------"
 yum -y install epel-release
-yum update
+yum -y update
 yum -y install nano wget
 
 echo "---------------------------------------------------------------"
@@ -37,7 +37,7 @@ echo "INSTALLING MYSQL 5.6"
 echo "---------------------------------------------------------------"
 rpm -Uvh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 rpm -ivh mysql-community-release-el7-5.noarch.rpm
-yum update
+yum -y update
 yum install -y mysql-server
 systemctl start mysqld
 systemctl enable mysqld
@@ -46,8 +46,8 @@ echo "---------------------------------------------------------------"
 echo "INSTALLING PHPunit"
 echo "---------------------------------------------------------------"
 wget https://phar.phpunit.de/phpunit.phar
-chmod +x phpunit.phar
-#mv phpunit.phar /usr/local/bin/phpunit
+chmod +x ./phpunit.phar
+mv /home/vagrant/phpunit.phar /usr/local/bin/phpunit
 #phpunit --version
 
 echo "---------------------------------------------------------------"
@@ -57,7 +57,7 @@ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
-#mv composer.phar /usr/local/bin/composer
+mv /home/vagrant/composer.phar /usr/local/bin/composer
 #composer --version
 
 echo "---------------------------------------------------------------"
