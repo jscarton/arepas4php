@@ -61,6 +61,13 @@ mv /home/vagrant/composer.phar /usr/local/bin/composer
 /usr/local/bin/composer --version
 
 echo "---------------------------------------------------------------"
+echo "INSTALLING NODE 6.X"
+echo "---------------------------------------------------------------"
+curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+yum -y install nodejs
+node -v
+
+echo "---------------------------------------------------------------"
 echo "CONFIGURING FIRST SITE"
 echo "---------------------------------------------------------------"
 cd /home/vagrant/arepas/recipes/nginx/php/
